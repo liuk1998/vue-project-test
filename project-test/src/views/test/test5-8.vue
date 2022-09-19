@@ -24,13 +24,24 @@
         <label for="two">姓名</label>
          <input type="radio" id="three" value="年龄" v-model="age">
         <label for="three">年龄</label>
-    </div> 
+
+        <div>父组件传子组件: {{ num }}</div>
+        <hr>
+        <button @click="sonGiveFather">通过emit实现子传父</button>
+    </div>
 </template>
 
 <script>
 export default {
      // eslint-disable-next-line vue/multi-word-component-names
     name : 'Test5',
+    //props: ['num'],
+    props: {
+        num: {
+            type: Number, // 类型
+            default: 200 // 默认值
+        }
+    },
     data() {
         return {
             name: 'lyq',
@@ -60,12 +71,15 @@ export default {
                 '淘宝'
             ]
         }
-        
+
     },
     methods: {
         openName() {
             this.open = !this.open
             this.openAdd = !this.openAdd
+        },
+        sonGiveFather() {
+            this.$emit('getSon', this.name)
         }
     }
 }
