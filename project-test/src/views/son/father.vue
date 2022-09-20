@@ -7,7 +7,8 @@
         <div>{{ age }}</div>
         <div >{{ sex }}</div>
         <div>----子组件-----</div>
-  <!--  <Son :boy='hus'></Son> -->
+    <Son :boy='hus'></Son> 
+    <div>---------------------</div>
     <Son ref="date" @getSex="changeSex"></Son>
     <button @click="changeText">点击传值</button>
     </div>
@@ -27,7 +28,7 @@ export default {
             name: "lyq",
             age: 20,
             sex: "女",
-          //  hus:"猪猪小宝"
+            hus:"猪猪小宝"
         }
     },
     methods:{
